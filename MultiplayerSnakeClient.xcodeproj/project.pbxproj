@@ -1,0 +1,738 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		183FE0F41CEA20B9008EB6E2 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183FE0F31CEA20B9008EB6E2 /* SignUpView.xib */; };
+		183FE0F71CEA2565008EB6E2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */; };
+		184249791CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m in Sources */ = {isa = PBXBuildFile; fileRef = 184249781CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m */; };
+		1861429B1CED726A0052407E /* Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861429A1CED726A0052407E /* Handler.m */; };
+		1887E61A1CE31BEB009945A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6191CE31BEB009945A7 /* main.m */; };
+		1887E61D1CE31BEB009945A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E61C1CE31BEB009945A7 /* AppDelegate.m */; };
+		1887E6281CE31BEB009945A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887E6261CE31BEB009945A7 /* Main.storyboard */; };
+		1887E62A1CE31BEB009945A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1887E6291CE31BEB009945A7 /* Assets.xcassets */; };
+		1887E62D1CE31BEB009945A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887E62B1CE31BEB009945A7 /* LaunchScreen.storyboard */; };
+		1887E6381CE31BEB009945A7 /* MultiplayerSnakeClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6371CE31BEB009945A7 /* MultiplayerSnakeClientTests.m */; };
+		1887E6431CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */; };
+		18B753F91CE7645100D65A97 /* CreateRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B753F81CE7645100D65A97 /* CreateRoomViewController.m */; };
+		18C088941CEC44B000EB7F2A /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C088931CEC44B000EB7F2A /* RoomViewController.m */; };
+		18E952361CE4BF3B00203D91 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952181CE4BF3B00203D91 /* GameScene.m */; };
+		18E952371CE4BF3B00203D91 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18E952191CE4BF3B00203D91 /* GameScene.sks */; };
+		18E952381CE4BF3B00203D91 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9521B1CE4BF3B00203D91 /* GameViewController.m */; };
+		18E952391CE4BF3B00203D91 /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9521E1CE4BF3B00203D91 /* InitViewController.m */; };
+		18E9523A1CE4BF3B00203D91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952201CE4BF3B00203D91 /* LoginViewController.m */; };
+		18E9523B1CE4BF3B00203D91 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952221CE4BF3B00203D91 /* NavigationController.m */; };
+		18E952411CE4BF3B00203D91 /* RoomListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952321CE4BF3B00203D91 /* RoomListCell.m */; };
+		18E952421CE4BF3B00203D91 /* RoomListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E952331CE4BF3B00203D91 /* RoomListCell.xib */; };
+		18E952431CE4BF3B00203D91 /* RoomListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952351CE4BF3B00203D91 /* RoomListTableViewController.m */; };
+		18E9524E1CE4C56D00203D91 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9524D1CE4C56D00203D91 /* NetworkManager.m */; };
+		18EC73E91CE63C4100D150D7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC73E81CE63C4100D150D7 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18EC73FD1CE6E23500D150D7 /* DataPacketProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC73F91CE6E23500D150D7 /* DataPacketProtocol.m */; };
+		18EC73FE1CE6E23500D150D7 /* Sender.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC73FC1CE6E23500D150D7 /* Sender.m */; };
+		18EC74001CE6E2AD00D150D7 /* DataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC73FF1CE6E2AD00D150D7 /* DataPacket.m */; };
+		18EC74031CE6E44B00D150D7 /* Receiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC74021CE6E44B00D150D7 /* Receiver.m */; };
+		18EC740B1CE727BF00D150D7 /* CreateRoomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC740A1CE727BF00D150D7 /* CreateRoomView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1887E6341CE31BEB009945A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1887E60D1CE31BEB009945A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1887E6141CE31BEB009945A7;
+			remoteInfo = MultiplayerSnakeClient;
+		};
+		1887E63F1CE31BEB009945A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1887E60D1CE31BEB009945A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1887E6141CE31BEB009945A7;
+			remoteInfo = MultiplayerSnakeClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1810C62B1CE4DD9C006332AB /* inet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inet.h; sourceTree = "<group>"; };
+		183FE0F31CEA20B9008EB6E2 /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		183FE0F51CEA2565008EB6E2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		184249771CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LengthOfChineseASCIIString.h"; sourceTree = "<group>"; };
+		184249781CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LengthOfChineseASCIIString.m"; sourceTree = "<group>"; };
+		186142991CED726A0052407E /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
+		1861429A1CED726A0052407E /* Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Handler.m; sourceTree = "<group>"; };
+		1887E6151CE31BEB009945A7 /* MultiplayerSnakeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplayerSnakeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1887E6191CE31BEB009945A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1887E61B1CE31BEB009945A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1887E61C1CE31BEB009945A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1887E6271CE31BEB009945A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1887E6291CE31BEB009945A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1887E62C1CE31BEB009945A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1887E62E1CE31BEB009945A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1887E6331CE31BEB009945A7 /* MultiplayerSnakeClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplayerSnakeClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1887E6371CE31BEB009945A7 /* MultiplayerSnakeClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiplayerSnakeClientTests.m; sourceTree = "<group>"; };
+		1887E6391CE31BEB009945A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1887E63E1CE31BEB009945A7 /* MultiplayerSnakeClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplayerSnakeClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiplayerSnakeClientUITests.m; sourceTree = "<group>"; };
+		1887E6441CE31BEB009945A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18B753F71CE7645100D65A97 /* CreateRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRoomViewController.h; sourceTree = "<group>"; };
+		18B753F81CE7645100D65A97 /* CreateRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRoomViewController.m; sourceTree = "<group>"; };
+		18C088921CEC44B000EB7F2A /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
+		18C088931CEC44B000EB7F2A /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		18E952171CE4BF3B00203D91 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		18E952181CE4BF3B00203D91 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		18E952191CE4BF3B00203D91 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		18E9521A1CE4BF3B00203D91 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		18E9521B1CE4BF3B00203D91 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		18E9521D1CE4BF3B00203D91 /* InitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitViewController.h; sourceTree = "<group>"; };
+		18E9521E1CE4BF3B00203D91 /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
+		18E9521F1CE4BF3B00203D91 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		18E952201CE4BF3B00203D91 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		18E952211CE4BF3B00203D91 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		18E952221CE4BF3B00203D91 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		18E952311CE4BF3B00203D91 /* RoomListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListCell.h; sourceTree = "<group>"; };
+		18E952321CE4BF3B00203D91 /* RoomListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListCell.m; sourceTree = "<group>"; };
+		18E952331CE4BF3B00203D91 /* RoomListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomListCell.xib; sourceTree = "<group>"; };
+		18E952341CE4BF3B00203D91 /* RoomListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListTableViewController.h; sourceTree = "<group>"; };
+		18E952351CE4BF3B00203D91 /* RoomListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListTableViewController.m; sourceTree = "<group>"; };
+		18E9524C1CE4C56D00203D91 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		18E9524D1CE4C56D00203D91 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		18EC73E41CE6284100D150D7 /* DisplayNetworkProcessUIDeleagte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayNetworkProcessUIDeleagte.h; sourceTree = "<group>"; };
+		18EC73E71CE63C4100D150D7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		18EC73E81CE63C4100D150D7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		18EC73F71CE6E23500D150D7 /* DataPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPacket.h; sourceTree = "<group>"; };
+		18EC73F81CE6E23500D150D7 /* DataPacketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPacketProtocol.h; sourceTree = "<group>"; };
+		18EC73F91CE6E23500D150D7 /* DataPacketProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPacketProtocol.m; sourceTree = "<group>"; };
+		18EC73FB1CE6E23500D150D7 /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
+		18EC73FC1CE6E23500D150D7 /* Sender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sender.m; sourceTree = "<group>"; };
+		18EC73FF1CE6E2AD00D150D7 /* DataPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPacket.m; sourceTree = "<group>"; };
+		18EC74011CE6E44B00D150D7 /* Receiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receiver.h; sourceTree = "<group>"; };
+		18EC74021CE6E44B00D150D7 /* Receiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receiver.m; sourceTree = "<group>"; };
+		18EC740A1CE727BF00D150D7 /* CreateRoomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateRoomView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1887E6121CE31BEB009945A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1887E6301CE31BEB009945A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1887E63B1CE31BEB009945A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1842496D1CEAD62000C155DC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				184249771CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.h */,
+				184249781CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		1887E60C1CE31BEB009945A7 = {
+			isa = PBXGroup;
+			children = (
+				1887E6171CE31BEB009945A7 /* MultiplayerSnakeClient */,
+				1887E6361CE31BEB009945A7 /* MultiplayerSnakeClientTests */,
+				1887E6411CE31BEB009945A7 /* MultiplayerSnakeClientUITests */,
+				1887E6161CE31BEB009945A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1887E6161CE31BEB009945A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1887E6151CE31BEB009945A7 /* MultiplayerSnakeClient.app */,
+				1887E6331CE31BEB009945A7 /* MultiplayerSnakeClientTests.xctest */,
+				1887E63E1CE31BEB009945A7 /* MultiplayerSnakeClientUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1887E6171CE31BEB009945A7 /* MultiplayerSnakeClient */ = {
+			isa = PBXGroup;
+			children = (
+				1842496D1CEAD62000C155DC /* Category */,
+				18E9524B1CE4C4FF00203D91 /* Network */,
+				18E9521C1CE4BF3B00203D91 /* Init */,
+				18E952301CE4BF3B00203D91 /* RoomList */,
+				18C0888E1CEC401600EB7F2A /* Room */,
+				18E952161CE4BF3B00203D91 /* Game */,
+				1887E61B1CE31BEB009945A7 /* AppDelegate.h */,
+				1887E61C1CE31BEB009945A7 /* AppDelegate.m */,
+				1887E6261CE31BEB009945A7 /* Main.storyboard */,
+				1887E62B1CE31BEB009945A7 /* LaunchScreen.storyboard */,
+				1887E6291CE31BEB009945A7 /* Assets.xcassets */,
+				1887E62E1CE31BEB009945A7 /* Info.plist */,
+				1887E6181CE31BEB009945A7 /* Supporting Files */,
+			);
+			path = MultiplayerSnakeClient;
+			sourceTree = "<group>";
+		};
+		1887E6181CE31BEB009945A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1887E6191CE31BEB009945A7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1887E6361CE31BEB009945A7 /* MultiplayerSnakeClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				1887E6371CE31BEB009945A7 /* MultiplayerSnakeClientTests.m */,
+				1887E6391CE31BEB009945A7 /* Info.plist */,
+			);
+			path = MultiplayerSnakeClientTests;
+			sourceTree = "<group>";
+		};
+		1887E6411CE31BEB009945A7 /* MultiplayerSnakeClientUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */,
+				1887E6441CE31BEB009945A7 /* Info.plist */,
+			);
+			path = MultiplayerSnakeClientUITests;
+			sourceTree = "<group>";
+		};
+		18C0888E1CEC401600EB7F2A /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				18C088921CEC44B000EB7F2A /* RoomViewController.h */,
+				18C088931CEC44B000EB7F2A /* RoomViewController.m */,
+			);
+			name = Room;
+			path = Game;
+			sourceTree = "<group>";
+		};
+		18E952161CE4BF3B00203D91 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				18E952171CE4BF3B00203D91 /* GameScene.h */,
+				18E952181CE4BF3B00203D91 /* GameScene.m */,
+				18E952191CE4BF3B00203D91 /* GameScene.sks */,
+				18E9521A1CE4BF3B00203D91 /* GameViewController.h */,
+				18E9521B1CE4BF3B00203D91 /* GameViewController.m */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		18E9521C1CE4BF3B00203D91 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				18E9521D1CE4BF3B00203D91 /* InitViewController.h */,
+				18E9521E1CE4BF3B00203D91 /* InitViewController.m */,
+				18E9521F1CE4BF3B00203D91 /* LoginViewController.h */,
+				18E952201CE4BF3B00203D91 /* LoginViewController.m */,
+				183FE0F31CEA20B9008EB6E2 /* SignUpView.xib */,
+				183FE0F51CEA2565008EB6E2 /* SignUpViewController.h */,
+				183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */,
+				18E952211CE4BF3B00203D91 /* NavigationController.h */,
+				18E952221CE4BF3B00203D91 /* NavigationController.m */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		18E952301CE4BF3B00203D91 /* RoomList */ = {
+			isa = PBXGroup;
+			children = (
+				18E952341CE4BF3B00203D91 /* RoomListTableViewController.h */,
+				18E952351CE4BF3B00203D91 /* RoomListTableViewController.m */,
+				18E952331CE4BF3B00203D91 /* RoomListCell.xib */,
+				18E952311CE4BF3B00203D91 /* RoomListCell.h */,
+				18E952321CE4BF3B00203D91 /* RoomListCell.m */,
+				18EC740A1CE727BF00D150D7 /* CreateRoomView.xib */,
+				18B753F71CE7645100D65A97 /* CreateRoomViewController.h */,
+				18B753F81CE7645100D65A97 /* CreateRoomViewController.m */,
+			);
+			path = RoomList;
+			sourceTree = "<group>";
+		};
+		18E9524B1CE4C4FF00203D91 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				18EC73F71CE6E23500D150D7 /* DataPacket.h */,
+				18EC73FF1CE6E2AD00D150D7 /* DataPacket.m */,
+				18EC73F81CE6E23500D150D7 /* DataPacketProtocol.h */,
+				18EC73F91CE6E23500D150D7 /* DataPacketProtocol.m */,
+				18EC73FA1CE6E23500D150D7 /* Interactor */,
+				18EC73E61CE63C1100D150D7 /* JSON */,
+				18EC73E31CE627F000D150D7 /* Delegate */,
+				1810C62B1CE4DD9C006332AB /* inet.h */,
+				18E9524C1CE4C56D00203D91 /* NetworkManager.h */,
+				18E9524D1CE4C56D00203D91 /* NetworkManager.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		18EC73E31CE627F000D150D7 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				18EC73E41CE6284100D150D7 /* DisplayNetworkProcessUIDeleagte.h */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		18EC73E61CE63C1100D150D7 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				18EC73E71CE63C4100D150D7 /* JSONKit.h */,
+				18EC73E81CE63C4100D150D7 /* JSONKit.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		18EC73FA1CE6E23500D150D7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				18EC73FB1CE6E23500D150D7 /* Sender.h */,
+				18EC73FC1CE6E23500D150D7 /* Sender.m */,
+				18EC74011CE6E44B00D150D7 /* Receiver.h */,
+				18EC74021CE6E44B00D150D7 /* Receiver.m */,
+				186142991CED726A0052407E /* Handler.h */,
+				1861429A1CED726A0052407E /* Handler.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1887E6141CE31BEB009945A7 /* MultiplayerSnakeClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1887E6471CE31BEB009945A7 /* Build configuration list for PBXNativeTarget "MultiplayerSnakeClient" */;
+			buildPhases = (
+				1887E6111CE31BEB009945A7 /* Sources */,
+				1887E6121CE31BEB009945A7 /* Frameworks */,
+				1887E6131CE31BEB009945A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiplayerSnakeClient;
+			productName = MultiplayerSnakeClient;
+			productReference = 1887E6151CE31BEB009945A7 /* MultiplayerSnakeClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1887E6321CE31BEB009945A7 /* MultiplayerSnakeClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1887E64A1CE31BEB009945A7 /* Build configuration list for PBXNativeTarget "MultiplayerSnakeClientTests" */;
+			buildPhases = (
+				1887E62F1CE31BEB009945A7 /* Sources */,
+				1887E6301CE31BEB009945A7 /* Frameworks */,
+				1887E6311CE31BEB009945A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1887E6351CE31BEB009945A7 /* PBXTargetDependency */,
+			);
+			name = MultiplayerSnakeClientTests;
+			productName = MultiplayerSnakeClientTests;
+			productReference = 1887E6331CE31BEB009945A7 /* MultiplayerSnakeClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1887E63D1CE31BEB009945A7 /* MultiplayerSnakeClientUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1887E64D1CE31BEB009945A7 /* Build configuration list for PBXNativeTarget "MultiplayerSnakeClientUITests" */;
+			buildPhases = (
+				1887E63A1CE31BEB009945A7 /* Sources */,
+				1887E63B1CE31BEB009945A7 /* Frameworks */,
+				1887E63C1CE31BEB009945A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1887E6401CE31BEB009945A7 /* PBXTargetDependency */,
+			);
+			name = MultiplayerSnakeClientUITests;
+			productName = MultiplayerSnakeClientUITests;
+			productReference = 1887E63E1CE31BEB009945A7 /* MultiplayerSnakeClientUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1887E60D1CE31BEB009945A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Aloniki's Study";
+				TargetAttributes = {
+					1887E6141CE31BEB009945A7 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = KFX623L827;
+					};
+					1887E6321CE31BEB009945A7 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 364E842ACK;
+						TestTargetID = 1887E6141CE31BEB009945A7;
+					};
+					1887E63D1CE31BEB009945A7 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 364E842ACK;
+						TestTargetID = 1887E6141CE31BEB009945A7;
+					};
+				};
+			};
+			buildConfigurationList = 1887E6101CE31BEB009945A7 /* Build configuration list for PBXProject "MultiplayerSnakeClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1887E60C1CE31BEB009945A7;
+			productRefGroup = 1887E6161CE31BEB009945A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1887E6141CE31BEB009945A7 /* MultiplayerSnakeClient */,
+				1887E6321CE31BEB009945A7 /* MultiplayerSnakeClientTests */,
+				1887E63D1CE31BEB009945A7 /* MultiplayerSnakeClientUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1887E6131CE31BEB009945A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18E952371CE4BF3B00203D91 /* GameScene.sks in Resources */,
+				18EC740B1CE727BF00D150D7 /* CreateRoomView.xib in Resources */,
+				183FE0F41CEA20B9008EB6E2 /* SignUpView.xib in Resources */,
+				1887E62D1CE31BEB009945A7 /* LaunchScreen.storyboard in Resources */,
+				1887E62A1CE31BEB009945A7 /* Assets.xcassets in Resources */,
+				18E952421CE4BF3B00203D91 /* RoomListCell.xib in Resources */,
+				1887E6281CE31BEB009945A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1887E6311CE31BEB009945A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1887E63C1CE31BEB009945A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1887E6111CE31BEB009945A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184249791CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m in Sources */,
+				18E952381CE4BF3B00203D91 /* GameViewController.m in Sources */,
+				18EC74001CE6E2AD00D150D7 /* DataPacket.m in Sources */,
+				1887E61D1CE31BEB009945A7 /* AppDelegate.m in Sources */,
+				18E9523A1CE4BF3B00203D91 /* LoginViewController.m in Sources */,
+				18E952411CE4BF3B00203D91 /* RoomListCell.m in Sources */,
+				18B753F91CE7645100D65A97 /* CreateRoomViewController.m in Sources */,
+				18C088941CEC44B000EB7F2A /* RoomViewController.m in Sources */,
+				18E952391CE4BF3B00203D91 /* InitViewController.m in Sources */,
+				18E952361CE4BF3B00203D91 /* GameScene.m in Sources */,
+				183FE0F71CEA2565008EB6E2 /* SignUpViewController.m in Sources */,
+				18E952431CE4BF3B00203D91 /* RoomListTableViewController.m in Sources */,
+				18EC74031CE6E44B00D150D7 /* Receiver.m in Sources */,
+				1887E61A1CE31BEB009945A7 /* main.m in Sources */,
+				1861429B1CED726A0052407E /* Handler.m in Sources */,
+				18E9524E1CE4C56D00203D91 /* NetworkManager.m in Sources */,
+				18E9523B1CE4BF3B00203D91 /* NavigationController.m in Sources */,
+				18EC73FE1CE6E23500D150D7 /* Sender.m in Sources */,
+				18EC73E91CE63C4100D150D7 /* JSONKit.m in Sources */,
+				18EC73FD1CE6E23500D150D7 /* DataPacketProtocol.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1887E62F1CE31BEB009945A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1887E6381CE31BEB009945A7 /* MultiplayerSnakeClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1887E63A1CE31BEB009945A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1887E6431CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1887E6351CE31BEB009945A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1887E6141CE31BEB009945A7 /* MultiplayerSnakeClient */;
+			targetProxy = 1887E6341CE31BEB009945A7 /* PBXContainerItemProxy */;
+		};
+		1887E6401CE31BEB009945A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1887E6141CE31BEB009945A7 /* MultiplayerSnakeClient */;
+			targetProxy = 1887E63F1CE31BEB009945A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1887E6261CE31BEB009945A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1887E6271CE31BEB009945A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1887E62B1CE31BEB009945A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1887E62C1CE31BEB009945A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1887E6451CE31BEB009945A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1887E6461CE31BEB009945A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1887E6481CE31BEB009945A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MultiplayerSnakeClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinisimanyu.OCStudy.MultiplayerSnakeClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1887E6491CE31BEB009945A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MultiplayerSnakeClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinisimanyu.OCStudy.MultiplayerSnakeClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1887E64B1CE31BEB009945A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MultiplayerSnakeClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinisimanyu.OCStudy.MultiplayerSnakeClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiplayerSnakeClient.app/MultiplayerSnakeClient";
+			};
+			name = Debug;
+		};
+		1887E64C1CE31BEB009945A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MultiplayerSnakeClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinisimanyu.OCStudy.MultiplayerSnakeClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiplayerSnakeClient.app/MultiplayerSnakeClient";
+			};
+			name = Release;
+		};
+		1887E64E1CE31BEB009945A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MultiplayerSnakeClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinisimanyu.OCStudy.MultiplayerSnakeClientUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MultiplayerSnakeClient;
+			};
+			name = Debug;
+		};
+		1887E64F1CE31BEB009945A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MultiplayerSnakeClientUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pinisimanyu.OCStudy.MultiplayerSnakeClientUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MultiplayerSnakeClient;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1887E6101CE31BEB009945A7 /* Build configuration list for PBXProject "MultiplayerSnakeClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1887E6451CE31BEB009945A7 /* Debug */,
+				1887E6461CE31BEB009945A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1887E6471CE31BEB009945A7 /* Build configuration list for PBXNativeTarget "MultiplayerSnakeClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1887E6481CE31BEB009945A7 /* Debug */,
+				1887E6491CE31BEB009945A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1887E64A1CE31BEB009945A7 /* Build configuration list for PBXNativeTarget "MultiplayerSnakeClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1887E64B1CE31BEB009945A7 /* Debug */,
+				1887E64C1CE31BEB009945A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1887E64D1CE31BEB009945A7 /* Build configuration list for PBXNativeTarget "MultiplayerSnakeClientUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1887E64E1CE31BEB009945A7 /* Debug */,
+				1887E64F1CE31BEB009945A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1887E60D1CE31BEB009945A7 /* Project object */;
+}
