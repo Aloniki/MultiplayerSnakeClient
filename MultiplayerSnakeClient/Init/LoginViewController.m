@@ -16,8 +16,7 @@
 @property (assign, nonatomic) NetworkManager* networkManager;
 @property (strong, nonatomic) NavigationController* navigationController;
 @property (strong, nonatomic) UIActivityIndicatorView* daizy;
-@property (strong, nonatomic) UIAlertController* alert;
-@property (strong, nonatomic) SignUpViewController* signUpViewController;
+@property (weak, nonatomic) SignUpViewController* signUpViewController;
 
 @end
 
@@ -32,7 +31,6 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.networkManager = [NetworkManager getNetworkManagerInstance];
-    [self.daizy initWithActivityIndicatorStyle:self];
     if (!_daizy) {
         _daizy = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [_daizy setColor:[UIColor orangeColor]];
@@ -115,6 +113,7 @@
     [self.daizy startAnimating];
     //launch the activity indicator while waiting
     [_daizy startAnimating];
+    [self.view setUserInteractionEnabled:NO];
     
     //lauch a new thread to handle the network affairs
     //if done, interface 
@@ -134,21 +133,22 @@
                     [self.view removeFromSuperview];
                 }
                 [self.daizy stopAnimating];
+                [self.view setUserInteractionEnabled:YES];
                 [UIView commitAnimations];
             });
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.daizy stopAnimating];
-                if (!self.alert) {
-                    self.alert = [UIAlertController alertControllerWithTitle:@"Login Alert"
-                                                                     message:@"Fail to login in the game hall, please try again."
-                                                              preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Alert"
+                                                                               message:@"Fail to login in the game hall, please try again."
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action){
-                        [self.alert dismissViewControllerAnimated:YES completion:nil];
+                        [alert dismissViewControllerAnimated:YES completion:nil];
+                        [self.view setUserInteractionEnabled:YES];
                     }];
-                    [self.alert addAction:okAction];
-                }
-                [self presentViewController:self.alert animated:YES completion:nil];
+                    [alert addAction:okAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+                
             });
         }
     });

@@ -81,10 +81,10 @@ static NetworkManager* networkManager;
     CFSocketNativeHandle socketfd = CFSocketGetNative(self.socket);
     CFSocketInvalidate(self.socket);
     close(socketfd);
+    self.socket = nil;
 }
 
 -(BOOL)connectToRole:(int)role inPort:(int)port{
-    
     self.socket = CFSocketCreate(NULL, PF_INET, SOCK_STREAM, IPPROTO_TCP,kCFSocketConnectCallBack, NULL, NULL);
     if (self.socket == NULL)
         return NO;
@@ -131,7 +131,9 @@ static NetworkManager* networkManager;
             if (nil != dataPacket) {
                 if (S2C_REQUIRED == dataPacket.type) {
                     NSArray* roomList = [dataPacket.data objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
-                    [self.delegate UpdateRoomList:roomList];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate UpdateRoomList:roomList];
+                    });
                     return YES;
                 }
             }else{
@@ -162,7 +164,9 @@ static NetworkManager* networkManager;
                 if (S2C_CREATED == dataPacket.type) {
                     [self setPlayerRole: RR_HOST];
                     NSDictionary* roomInfo = [dataPacket.data objectFromJSONString];
-                    [self.delegate RoomCreated:roomInfo];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate RoomCreated:roomInfo];
+                    });
                 }
             }
         }
@@ -240,7 +244,7 @@ static NetworkManager* networkManager;
         if (YES == [Sender send:C2R_UNPREPARE toRole:ROOMROLE withData:nil toSocket:socketfd]) {
             return YES;
         }else{
-            NSLog(@"error: sending prepare signal to room is failed");
+            NSLog(@"error: sending unprepare signal to room is failed");
             return NO;
         }
     }

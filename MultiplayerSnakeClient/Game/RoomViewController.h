@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NetworkManager.h"
 #import "DisplayNetworkProcessUIDeleagte.h"
+#import "CircleIndicatorView.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface RoomViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,DisplayNetworkProcessUIDeleagte>
 

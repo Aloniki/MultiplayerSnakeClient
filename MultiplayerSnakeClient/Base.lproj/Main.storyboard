@@ -160,8 +160,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="statusView" destination="jge-TH-ot0" id="xwa-h5-Ja0"/>
                         <outlet property="tableView" destination="SUh-xG-Efu" id="04y-uH-bsV"/>
                         <segue destination="by4-uw-pdN" kind="unwind" identifier="ExitRoomSegue" unwindAction="backToGameHall:" id="tHU-L9-Ycs"/>
+                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="StartGameSegue" id="ntn-mq-4Ko"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d2-uN-QcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="-660"/>
+            <point key="canvasLocation" x="2727" y="142"/>
         </scene>
     </scenes>
 </document>

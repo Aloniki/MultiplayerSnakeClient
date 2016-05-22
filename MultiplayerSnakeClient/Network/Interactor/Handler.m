@@ -18,6 +18,18 @@
                 [self.delegate UpdatePlayerList:playerList];
                 break;
             }
+            case R2C_GAMEWILLSTART:{
+                [self.delegate GameWillStart];
+                break;
+            }
+            case R2C_GAMEWILLSTOP:{
+                [self.delegate GameStopStarting];
+                break;
+            }
+            case R2C_INVALID:{
+                [self.delegate InvalidOperation];
+                break;
+            }
             default:
                 break;
         }

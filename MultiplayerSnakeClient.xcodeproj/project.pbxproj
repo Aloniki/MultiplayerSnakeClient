@@ -18,6 +18,7 @@
 		1887E62D1CE31BEB009945A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887E62B1CE31BEB009945A7 /* LaunchScreen.storyboard */; };
 		1887E6381CE31BEB009945A7 /* MultiplayerSnakeClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6371CE31BEB009945A7 /* MultiplayerSnakeClientTests.m */; };
 		1887E6431CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */; };
+		189832E71CF094A800FE33B2 /* CircleIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189832E61CF094A800FE33B2 /* CircleIndicatorView.m */; };
 		18B753F91CE7645100D65A97 /* CreateRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B753F81CE7645100D65A97 /* CreateRoomViewController.m */; };
 		18C088941CEC44B000EB7F2A /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C088931CEC44B000EB7F2A /* RoomViewController.m */; };
 		18E952361CE4BF3B00203D91 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952181CE4BF3B00203D91 /* GameScene.m */; };
@@ -78,6 +79,8 @@
 		1887E63E1CE31BEB009945A7 /* MultiplayerSnakeClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplayerSnakeClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiplayerSnakeClientUITests.m; sourceTree = "<group>"; };
 		1887E6441CE31BEB009945A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189832E51CF094A800FE33B2 /* CircleIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleIndicatorView.h; sourceTree = "<group>"; };
+		189832E61CF094A800FE33B2 /* CircleIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleIndicatorView.m; sourceTree = "<group>"; };
 		18B753F71CE7645100D65A97 /* CreateRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRoomViewController.h; sourceTree = "<group>"; };
 		18B753F81CE7645100D65A97 /* CreateRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRoomViewController.m; sourceTree = "<group>"; };
 		18C088921CEC44B000EB7F2A /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
@@ -148,6 +151,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		187FDF4B1CF0339800285EEE /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				189832E51CF094A800FE33B2 /* CircleIndicatorView.h */,
+				189832E61CF094A800FE33B2 /* CircleIndicatorView.m */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
 		1887E60C1CE31BEB009945A7 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 		1887E6171CE31BEB009945A7 /* MultiplayerSnakeClient */ = {
 			isa = PBXGroup;
 			children = (
+				187FDF4B1CF0339800285EEE /* Graph */,
 				1842496D1CEAD62000C155DC /* Category */,
 				18E9524B1CE4C4FF00203D91 /* Network */,
 				18E9521C1CE4BF3B00203D91 /* Init */,
@@ -468,6 +481,7 @@
 				1861429B1CED726A0052407E /* Handler.m in Sources */,
 				18E9524E1CE4C56D00203D91 /* NetworkManager.m in Sources */,
 				18E9523B1CE4BF3B00203D91 /* NavigationController.m in Sources */,
+				189832E71CF094A800FE33B2 /* CircleIndicatorView.m in Sources */,
 				18EC73FE1CE6E23500D150D7 /* Sender.m in Sources */,
 				18EC73E91CE63C4100D150D7 /* JSONKit.m in Sources */,
 				18EC73FD1CE6E23500D150D7 /* DataPacketProtocol.m in Sources */,

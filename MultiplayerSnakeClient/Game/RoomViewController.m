@@ -11,24 +11,36 @@
 @interface RoomViewController()
 
 @property (strong, nonatomic) NetworkManager* networkManager;
-@property (strong, nonnull) NSMutableDictionary* host;
+@property (strong, nonatomic) NSMutableDictionary* host;
 @property (strong, nonatomic) NSMutableArray* guestList;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView* statusView;
+@property (strong, nonatomic) CircleIndicatorView* circleIndicator ;
 
+@property (readwrite, nonatomic) int waitingTimes;
+
+@property (readwrite, nonatomic) BOOL isStarting;
 
 @end
 
 @implementation RoomViewController
 
 -(void)viewDidLoad{
+    [self.statusView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.statusView.frame.size.height)];
+    self.circleIndicator = [[CircleIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 45, 45) withCenter:CGPointMake(22.5, 22.5) withRaidus:18 withStartAngle:-90 withClockwise:0];
+    [self.circleIndicator setCenter:CGPointMake(self.statusView.center.x, self.statusView.frame.size.height/2)];
+    [self.statusView addSubview:self.circleIndicator];
+    
     self.host = nil;
     self.guestList = [[NSMutableArray alloc]init];
+    self.waitingTimes = 0;
     
     //init networkManager instance
     self.networkManager = [NetworkManager getNetworkManagerInstance];
     [self.networkManager setDelegate:self];
     
     [self.networkManager joinRoom];
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -106,16 +118,42 @@
     [self.tableView reloadData];
 }
 
-
 -(IBAction)backToGameHall:(id)sender{
     [self.networkManager leaveRoom];
-connectToGameHall:
     [self.networkManager disconnectSocket];
-    if (NO == [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT]) {
-        NSLog(@"Room: connect back to game hall failed!");
-        goto connectToGameHall;
-    }
     [self performSegueWithIdentifier:@"ExitRoomSegue" sender:self];
+}
+
+-(void)GameWillStart{
+    [self setIsStarting:YES];
+    [self.circleIndicator show];
+    [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(countDownToStart:) userInfo:nil repeats:YES];
+}
+
+-(void)InvalidOperation{
+    [self.tableView reloadData];
+}
+
+-(void)GameStopStarting{
+    [self setIsStarting:NO];
+}
+
+-(void)countDownToStart:(NSTimer*)timer{
+    if (self.isStarting) {
+        if (240 > ++self.waitingTimes) {
+            [self.circleIndicator update:(float)self.waitingTimes / 240.0];
+            [self.circleIndicator setNeedsDisplay];
+        }else{
+            [self setWaitingTimes:0];
+            [timer invalidate];
+            [self.circleIndicator hide];
+            [self performSegueWithIdentifier:@"StartGameSegue" sender:self];
+        }
+    }else{
+        [self setWaitingTimes:0];
+        [timer invalidate];
+        [self.circleIndicator hide];
+    }
 }
 
 

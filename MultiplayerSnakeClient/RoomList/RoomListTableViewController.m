@@ -28,6 +28,8 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
 @implementation RoomListTableViewController
 
 #pragma mark - view methods -
+
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     //view settings
@@ -38,7 +40,31 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
     //load table view cell from nib
     UINib* nib = [UINib nibWithNibName:@"RoomListCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:RoomListCellIdentifier];
+    //launch daizy
+    [self launchDaizy];
     
+    //init properties;
+    [self initProperties];
+}
+
+- (void)launchDaizy {
+    if (!_daizy) {
+        _daizy = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [_daizy setColor:[UIColor orangeColor]];
+        [_daizy setCenter:self.view.center];
+        [_daizy setHidesWhenStopped:YES];
+        [self.view addSubview:_daizy];
+    }
+    [self.daizy startAnimating];
+    [self.view setUserInteractionEnabled:NO];
+}
+
+-(void)stopDaizy{
+    [self.daizy stopAnimating];
+    [self.view setUserInteractionEnabled:YES];
+}
+
+- (void)initProperties {
     self.roomList = [[NSArray alloc]init];
     
     //init networkManager instance
@@ -50,8 +76,8 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
     dispatch_async(queue, ^{
         [self.networkManager requireRoomList];
     });
-    
 }
+
 
 #pragma mark - tableViewDelegateMethod -
 //cell count
@@ -128,7 +154,7 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
 -(void)UpdateRoomList:(NSArray *)roomList{
     self.roomList = roomList;
     [self.tableView reloadData];
-//    [self.daizy stopAnimating];
+    [self stopDaizy];
 }
 
 #pragma mark - createNewRoom -
@@ -167,7 +193,11 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
  */
 -(void)confirmCreatingRoom:(NSString *)roomName withMaxPlayers:(int)players{
     [self.createRoomView dismissViewControllerAnimated:YES completion:nil];
-    [self.networkManager createRoom:roomName withMaxPlayers:players];
+    [self launchDaizy];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [self.networkManager createRoom:roomName withMaxPlayers:players];
+    });
 }
 
 /**
@@ -178,18 +208,37 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
 -(void)RoomCreated:(NSDictionary*)roomInfo{
     [self.networkManager exitGameHallServer];
     [self.networkManager disconnectSocket];
-    if ([self.networkManager connectToRole:ROOMROLE
-                                    inPort:[[roomInfo valueForKey:@"port"]intValue]]) {
-        [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:self];
-    }else{
-        [self.networkManager disconnectSocket];
-        [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT];
-    }
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        if ([self.networkManager connectToRole:ROOMROLE
+                                        inPort:[[roomInfo valueForKey:@"port"]intValue]]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self stopDaizy];
+                [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:self];
+            });
+        }else{
+            [self.networkManager disconnectSocket];
+            [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT];
+        }
+    });
 }
 
 -(IBAction)backToGameHall:(UIStoryboardSegue*)sender{
     NSLog(@"unwind segue!");
-    [self viewDidLoad];
+    [self launchDaizy];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        if (NO == [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT]) {
+            NSLog(@"Room: connect back to game hall failed!");
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self initProperties];
+            });
+        }
+        
+    });
 }
 
 
