@@ -32,9 +32,17 @@
         self.startAngle = angle;
         self.clockwise = clockwise;
         [self setHidden:YES];
+        
+        UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(click:)];
+        [self addGestureRecognizer:tapGesture];
     }
     return self;
 }
+
+-(void)click:(id)sender{
+    [self.delegate StartGameByHost];
+}
+
 
 -(void)update:(float)percent{
     self.percent = percent;

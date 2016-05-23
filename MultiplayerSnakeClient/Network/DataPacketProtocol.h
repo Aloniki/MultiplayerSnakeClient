@@ -73,6 +73,8 @@ enum C2RSignal{
     C2R_JOIN        =   1,
     C2R_PREPARE     =   2,
     C2R_UNPREPARE   =   3,
+    C2R_START       =   4,
+    C2R_GAMELOADED  =   5,
 };
 /**
  *  room to client signal types
@@ -85,6 +87,8 @@ enum R2CSignal{
     R2C_GAMEWILLSTART = 4,
     R2C_UPDATE      = 5,
     R2C_GAMEWILLSTOP = 6,
+    R2C_GAMESTART   =  7,
+
 };
 
 @interface DataPacketProtocol : NSObject

@@ -15,6 +15,12 @@ char recvr[MAXLINE];                 //saves the data in one read
 char buf[MAXLINE];                  //saves the hole unpakcet data
 char head[DATALENGTH + 1];          //saves the packet length
 
+@interface Receiver()
+
+//@property (strong, nonatomic) Handler* handler;
+
+@end
+
 
 @implementation Receiver
 

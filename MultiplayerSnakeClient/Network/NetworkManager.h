@@ -16,12 +16,11 @@
 #import "DisplayNetworkProcessUIDeleagte.h"
 #import "Sender.h"
 #import "Receiver.h"
-#import "Handler.h"
 
-//#define SERVERIPADDRESS "127.0.0.1"
-//#define ROOMIPADDRESS "127.0.0.1"
-#define SERVERIPADDRESS "172.20.10.2"
-#define ROOMIPADDRESS "172.20.10.2"
+#define SERVERIPADDRESS "127.0.0.1"
+#define ROOMIPADDRESS "127.0.0.1"
+//#define SERVERIPADDRESS "172.20.10.2"
+//#define ROOMIPADDRESS "172.20.10.2"
 #define C2SPORT 9997
 
 @interface NetworkManager<ClientToServerDelegate>: NSObject{
@@ -32,6 +31,7 @@
 
 +(NetworkManager*)getNetworkManagerInstance;
 
+-(void)setMinePlayerStatus:(NSMutableDictionary*)playerStatus;
 -(int)getPlayerDescriptor;
 -(NSString*)getPlayerName;
 -(int)getPlayerState;
@@ -52,6 +52,8 @@
 -(BOOL)leaveRoom;
 -(BOOL)playerPrepare;
 -(BOOL)playerUnprepare;
+-(BOOL)startGame;
 
+-(BOOL)GameSceneLoaded;
 
 @end

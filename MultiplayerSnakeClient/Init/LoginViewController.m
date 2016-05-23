@@ -16,7 +16,7 @@
 @property (assign, nonatomic) NetworkManager* networkManager;
 @property (strong, nonatomic) NavigationController* navigationController;
 @property (strong, nonatomic) UIActivityIndicatorView* daizy;
-@property (weak, nonatomic) SignUpViewController* signUpViewController;
+@property (strong, nonatomic) SignUpViewController* signUpViewController;
 
 @end
 

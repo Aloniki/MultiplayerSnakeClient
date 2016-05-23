@@ -10,6 +10,8 @@
 		183FE0F41CEA20B9008EB6E2 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183FE0F31CEA20B9008EB6E2 /* SignUpView.xib */; };
 		183FE0F71CEA2565008EB6E2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */; };
 		184249791CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m in Sources */ = {isa = PBXBuildFile; fileRef = 184249781CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m */; };
+		1847EA581CF35D1700396D85 /* RoomHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847EA571CF35D1700396D85 /* RoomHandler.m */; };
+		1847EA5B1CF35E9400396D85 /* GameHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847EA5A1CF35E9400396D85 /* GameHandler.m */; };
 		1861429B1CED726A0052407E /* Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861429A1CED726A0052407E /* Handler.m */; };
 		1887E61A1CE31BEB009945A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6191CE31BEB009945A7 /* main.m */; };
 		1887E61D1CE31BEB009945A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E61C1CE31BEB009945A7 /* AppDelegate.m */; };
@@ -63,6 +65,10 @@
 		183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		184249771CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LengthOfChineseASCIIString.h"; sourceTree = "<group>"; };
 		184249781CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LengthOfChineseASCIIString.m"; sourceTree = "<group>"; };
+		1847EA561CF35D1700396D85 /* RoomHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomHandler.h; sourceTree = "<group>"; };
+		1847EA571CF35D1700396D85 /* RoomHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomHandler.m; sourceTree = "<group>"; };
+		1847EA591CF35E9400396D85 /* GameHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHandler.h; sourceTree = "<group>"; };
+		1847EA5A1CF35E9400396D85 /* GameHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHandler.m; sourceTree = "<group>"; };
 		186142991CED726A0052407E /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
 		1861429A1CED726A0052407E /* Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Handler.m; sourceTree = "<group>"; };
 		1887E6151CE31BEB009945A7 /* MultiplayerSnakeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplayerSnakeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,6 +329,10 @@
 				18EC74021CE6E44B00D150D7 /* Receiver.m */,
 				186142991CED726A0052407E /* Handler.h */,
 				1861429A1CED726A0052407E /* Handler.m */,
+				1847EA561CF35D1700396D85 /* RoomHandler.h */,
+				1847EA571CF35D1700396D85 /* RoomHandler.m */,
+				1847EA591CF35E9400396D85 /* GameHandler.h */,
+				1847EA5A1CF35E9400396D85 /* GameHandler.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -464,9 +474,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1847EA5B1CF35E9400396D85 /* GameHandler.m in Sources */,
 				184249791CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m in Sources */,
 				18E952381CE4BF3B00203D91 /* GameViewController.m in Sources */,
 				18EC74001CE6E2AD00D150D7 /* DataPacket.m in Sources */,
+				1847EA581CF35D1700396D85 /* RoomHandler.m in Sources */,
 				1887E61D1CE31BEB009945A7 /* AppDelegate.m in Sources */,
 				18E9523A1CE4BF3B00203D91 /* LoginViewController.m in Sources */,
 				18E952411CE4BF3B00203D91 /* RoomListCell.m in Sources */,

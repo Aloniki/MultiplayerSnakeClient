@@ -17,9 +17,11 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
 @property (strong, nonatomic) UIActivityIndicatorView* daizy;
 
 @property (strong, nonatomic) NetworkManager* networkManager;
-@property (strong, nonatomic) NSArray* roomList;
+@property (strong, nonatomic) NSMutableArray* roomList;
 
 @property (strong, nonatomic) CreateRoomViewController* createRoomView;
+
+@property (strong, nonatomic) NSMutableDictionary* roomInfo;
 
 @end
 
@@ -102,25 +104,25 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
     }
 }
 
-- (void)joinRoom:(NSIndexPath *)indexPath {
-    [self.networkManager exitGameHallServer];
-    [self.networkManager disconnectSocket];
-    [self.networkManager connectToRole:ROOMROLE inPort:[[[self.roomList objectAtIndex:[indexPath row]]valueForKey:@"port"]intValue]];
-    [self.networkManager setPlayerRole:RR_GUEST];
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (0 == [self.roomList count]) {
         return;
     }
-    UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
-    [self joinRoom:indexPath];
-    [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:selectedCell];
+    //get corresponding room info
+    [self setRoomInfo:[self.roomList objectAtIndex:[indexPath row]]];
+    //segue to room view
+    [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    UIViewController* testview = [segue destinationViewController];
-//    [testview.navigationItem setTitle:@"fuck"];
+    [self.networkManager exitGameHallServer];
+    [self.networkManager disconnectSocket];
+    
+    UIViewController* roomView = segue.destinationViewController;
+    if ([roomView respondsToSelector:@selector(setRoomInfo:)]) {
+        [roomView setValue:self.roomInfo forKey:@"roomInfo"];
+    }
 }
 
 #pragma mark - ShowRoomList -
@@ -205,23 +207,25 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
  *
  *  @param roomInfo the info of the room which is just created
  */
--(void)RoomCreated:(NSDictionary*)roomInfo{
-    [self.networkManager exitGameHallServer];
-    [self.networkManager disconnectSocket];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-        [NSThread sleepForTimeInterval:1];
-        if ([self.networkManager connectToRole:ROOMROLE
-                                        inPort:[[roomInfo valueForKey:@"port"]intValue]]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self stopDaizy];
-                [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:self];
-            });
-        }else{
-            [self.networkManager disconnectSocket];
-            [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT];
-        }
-    });
+-(void)RoomCreated:(NSMutableDictionary*)roomInfo{
+    [self setRoomInfo:roomInfo];
+    //segue to room view
+    [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:self];
+    
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_async(queue, ^{
+//        [NSThread sleepForTimeInterval:1];
+//        if ([self.networkManager connectToRole:ROOMROLE
+//                                        inPort:[[roomInfo valueForKey:@"port"]intValue]]) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self stopDaizy];
+//                [self performSegueWithIdentifier:@"JoinInRoomViewSegue" sender:self];
+//            });
+//        }else{
+//            [self.networkManager disconnectSocket];
+//            [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT];
+//        }
+//    });
 }
 
 -(IBAction)backToGameHall:(UIStoryboardSegue*)sender{

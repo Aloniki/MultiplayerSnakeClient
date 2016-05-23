@@ -11,9 +11,11 @@
 @protocol DisplayNetworkProcessUIDeleagte <NSObject>
 
 @optional
--(void)UpdateRoomList:(NSArray*)roomList;
+-(void)UpdateRoomList:(NSMutableArray*)roomList;
 @optional
--(void)RoomCreated:(NSDictionary*)roomInfo;
+-(void)RoomCreated:(NSMutableDictionary*)roomInfo;
+@optional
+-(void)UpdateSelfPlayer:(NSMutableDictionary*)player;
 @optional
 -(void)UpdatePlayerList:(NSMutableArray*)playerList;
 
@@ -23,6 +25,12 @@
 -(void)GameStopStarting;
 @optional
 -(void)InvalidOperation;
+
+@optional
+-(void)StartGameByHost;
+
+@optional
+-(void)StartPlaying;
 
 //-(void)PlayerPrepared:(NSMutableArray*)playerList;
 @end

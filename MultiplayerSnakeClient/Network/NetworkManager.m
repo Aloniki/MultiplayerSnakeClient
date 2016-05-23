@@ -7,6 +7,8 @@
 //
 
 #import "NetworkManager.h"
+#import "RoomHandler.h"
+#import "GameHandler.h"
 
 static NetworkManager* networkManager;
 
@@ -15,7 +17,6 @@ static NetworkManager* networkManager;
 @interface NetworkManager()
 
 @property (readwrite, nonatomic) CFSocketRef socket;
-@property (strong, nonatomic) Handler* handler;
 @property (strong, nonatomic) NSMutableDictionary* playerStatus;
 
 @end
@@ -29,7 +30,6 @@ static NetworkManager* networkManager;
 +(NetworkManager*)getNetworkManagerInstance{
     if (nil == networkManager) {
         networkManager = [[NetworkManager alloc]init];
-        networkManager.handler = [[Handler alloc]init];
         if (nil == networkManager.playerStatus) {
             networkManager.playerStatus = [[NSMutableDictionary alloc]initWithCapacity:4];
             [networkManager.playerStatus setValue:[[NSNumber alloc] initWithInt:0] forKey:@"playerDescriptor"];
@@ -39,6 +39,10 @@ static NetworkManager* networkManager;
         }
     }
     return networkManager;
+}
+
+-(void)setMinePlayerStatus:(NSMutableDictionary*)playerStatus{
+    self.playerStatus = playerStatus;
 }
 
 -(int)getPlayerDescriptor{
@@ -130,7 +134,7 @@ static NetworkManager* networkManager;
             DataPacket* dataPacket = [Receiver receiveOneTimeFrom:self.socket within:5];
             if (nil != dataPacket) {
                 if (S2C_REQUIRED == dataPacket.type) {
-                    NSArray* roomList = [dataPacket.data objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+                    NSMutableArray* roomList = [dataPacket.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.delegate UpdateRoomList:roomList];
                     });
@@ -163,7 +167,7 @@ static NetworkManager* networkManager;
             if (nil != dataPacket) {
                 if (S2C_CREATED == dataPacket.type) {
                     [self setPlayerRole: RR_HOST];
-                    NSDictionary* roomInfo = [dataPacket.data objectFromJSONString];
+                    NSMutableDictionary* roomInfo = [dataPacket.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.delegate RoomCreated:roomInfo];
                     });
@@ -191,13 +195,16 @@ static NetworkManager* networkManager;
             if (nil != dataPacket) {
                 if (R2C_JOINED == dataPacket.type) {
                     NSLog(@"join to the new room!");
-                    NSMutableArray* playerList = [dataPacket.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
-                    [self.delegate UpdatePlayerList:playerList];
-                    
+                    NSMutableDictionary* player = [dataPacket.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate UpdateSelfPlayer:player];
+                    });
+                    //run a receiver in a new thread
                     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                     dispatch_async(queue, ^{
-                        [self.handler setDelegate:self.delegate];
-                        [Receiver receiveFrom:self.socket withHandler:self.handler];
+                        RoomHandler* roomHandler = [[RoomHandler alloc]init];
+                        [roomHandler setDelegate:self.delegate];
+                        [Receiver receiveFrom:self.socket withHandler:roomHandler];
                     });
                 }
             }
@@ -251,7 +258,46 @@ static NetworkManager* networkManager;
     return NO;
 }
 
+-(BOOL)startGame{
+    if (CFSocketIsValid(self.socket)) {
+        CFSocketNativeHandle socketfd = CFSocketGetNative(self.socket);
+        if (YES == [Sender send:C2R_START toRole:(ROOMROLE) withData:nil toSocket:socketfd]) {
+            return YES;
+        }else{
+            NSLog(@"error: sending start signal to room is failed");
+            return NO;
+        }
+    }
+    return NO;
+}
 
+-(BOOL)GameSceneLoaded{
+    if (CFSocketIsValid(self.socket)) {
+        CFSocketNativeHandle socketfd = CFSocketGetNative(self.socket);
+        if (YES == [Sender send:C2R_GAMELOADED toRole:(ROOMROLE) withData:nil toSocket:socketfd]) {
+            DataPacket* dataPacket = [Receiver receiveOneTimeFrom:self.socket within:5];
+            if (nil != dataPacket) {
+                if (R2C_GAMESTART == dataPacket.type) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate StartPlaying];
+                    });
+                    
+                    //run a receiver in a new thread
+                    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+                    dispatch_async(queue, ^{
+                        GameHandler* gamehandler = [[GameHandler alloc]init];
+                        [gamehandler setDelegate:self.delegate];
+                        [Receiver receiveFrom:self.socket withHandler:gamehandler];
+                    });
+                }
+            }
+        }else{
+            NSLog(@"error: sending game loaded signal to room is failed");
+            return NO;
+        }
+    }
+    return NO;
+}
 
 
 

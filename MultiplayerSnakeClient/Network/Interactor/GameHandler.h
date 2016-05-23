@@ -1,17 +1,15 @@
 //
-//  Handler.m
+//  GameHandler.h
 //  MultiplayerSnakeClient
 //
-//  Created by Apple on 5/19/16.
+//  Created by Apple on 5/23/16.
 //  Copyright © 2016 Aloniki's Study. All rights reserved.
 //
 
 #import "Handler.h"
 
-@implementation Handler
+@interface GameHandler : Handler
 
--(void)handle:(DataPacket *)packet{
-    
-}
+-(void)handle:(DataPacket*)packet;
 
 @end

@@ -52,6 +52,15 @@
                     packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:C2R_UNPREPARE];
                     break;
                 }
+                case C2R_START:{
+                    packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:C2R_START];
+                    NSLog(@"send start sign to room by host!!");
+                    break;
+                }
+                case C2R_GAMELOADED:{
+                    packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:C2R_GAMELOADED];
+                    break;
+                }
                     
                 default:
                     break;

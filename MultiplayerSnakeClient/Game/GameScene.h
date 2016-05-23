@@ -7,7 +7,9 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "NetworkManager.h"
+#import "DisplayNetworkProcessUIDeleagte.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene<DisplayNetworkProcessUIDeleagte>
 
 @end

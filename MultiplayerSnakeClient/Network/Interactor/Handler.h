@@ -18,7 +18,4 @@
 
 -(void)handle:(DataPacket*)packet;
 
--(void)prepared;
--(void)unprepared;
-
 @end

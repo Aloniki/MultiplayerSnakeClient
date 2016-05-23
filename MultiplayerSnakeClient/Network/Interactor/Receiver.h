@@ -16,5 +16,6 @@
 
 +(DataPacket*)receiveOneTimeFrom:(CFSocketRef)socketfd within:(NSTimeInterval*)time;
 +(void)receiveFrom:(CFSocketRef)socketfd withHandler:(Handler*)handler;
++(void)stopReceiveing;
 
 @end
