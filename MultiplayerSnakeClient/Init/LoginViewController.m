@@ -121,20 +121,21 @@
     dispatch_async(queue, ^{
         if (YES == [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [UIView beginAnimations:@"View Flip" context:NULL];
-                [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
-                [UIView setAnimationDuration:1];
-                [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-                if (!self.navigationController.view.superview) {
-                    if (!self.navigationController) {
-                        self.navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Navigation"];
-                    }
-                    [self.view.superview insertSubview:self.navigationController.view atIndex:0];
-                    [self.view removeFromSuperview];
-                }
-                [self.daizy stopAnimating];
-                [self.view setUserInteractionEnabled:YES];
-                [UIView commitAnimations];
+//                [UIView beginAnimations:@"View Flip" context:NULL];
+//                [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+//                [UIView setAnimationDuration:1];
+//                [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+//                if (!self.navigationController.view.superview) {
+//                    if (!self.navigationController) {
+//                        self.navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Navigation"];
+//                    }
+//                    [self.view.superview insertSubview:self.navigationController.view atIndex:0];
+//                    [self.view removeFromSuperview];
+//                }
+//                [self.daizy stopAnimating];
+//                [self.view setUserInteractionEnabled:YES];
+//                [UIView commitAnimations];
+                [self performSegueWithIdentifier:@"LoginToGameHallSegue" sender:self];
             });
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -155,14 +156,19 @@
 
     
 }
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskPortrait;
-    } else {
-        return UIInterfaceOrientationMaskPortrait;
-    }
+    
+    return UIInterfaceOrientationMaskPortrait;
 }
+
+-(BOOL)shouldAutorotate{
+    return false;
+}
+
+
+
 
 
 @end

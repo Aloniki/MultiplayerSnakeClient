@@ -33,11 +33,7 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskPortrait;
-    } else {
-        return UIInterfaceOrientationMaskPortrait;
-    }
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 -(void)didReceiveMemoryWarning{

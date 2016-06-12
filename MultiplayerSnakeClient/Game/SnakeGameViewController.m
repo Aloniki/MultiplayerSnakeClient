@@ -132,11 +132,7 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskLandscapeRight;
-    } else {
-        return UIInterfaceOrientationMaskLandscapeRight;
-    }
+  return UIInterfaceOrientationMaskLandscapeRight;
 }
 
 /*
