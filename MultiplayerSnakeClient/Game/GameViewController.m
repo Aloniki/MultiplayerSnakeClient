@@ -38,9 +38,9 @@
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
+        return UIInterfaceOrientationMaskLandscapeRight;
     } else {
-        return UIInterfaceOrientationMaskAll;
+        return UIInterfaceOrientationMaskLandscapeRight;
     }
 }
 

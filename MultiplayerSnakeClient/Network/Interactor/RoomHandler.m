@@ -10,7 +10,9 @@
 
 @implementation RoomHandler
 
--(void)handle:(DataPacket*)packet{
+-(bool)handle:(DataPacket*)packet{
+    bool isGameWillStart = false;
+    
     switch (packet.type) {
         case R2C_UPDATE:{
             NSMutableArray* playerList = [packet.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
@@ -20,6 +22,7 @@
             break;
         }
         case R2C_GAMEWILLSTART:{
+            isGameWillStart = true;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.delegate GameWillStart];
             });
@@ -40,6 +43,7 @@
         default:
             break;
     }
+    return isGameWillStart;
 }
 
 @end

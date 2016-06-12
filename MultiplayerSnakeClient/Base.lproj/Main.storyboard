@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ljo-ub-1OX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ljo-ub-1OX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLt-Hn-ssV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-617"/>
+            <point key="canvasLocation" x="133" y="165"/>
         </scene>
         <!--Init View Controller-->
         <scene sceneID="hqP-nh-yQz">
@@ -100,7 +100,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJS-cC-e4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="142"/>
+            <point key="canvasLocation" x="1178" y="165"/>
         </scene>
         <!--游戏房间-->
         <scene sceneID="juZ-T5-8OX">
@@ -163,13 +163,13 @@
                         <outlet property="statusView" destination="jge-TH-ot0" id="xwa-h5-Ja0"/>
                         <outlet property="tableView" destination="SUh-xG-Efu" id="04y-uH-bsV"/>
                         <segue destination="by4-uw-pdN" kind="unwind" identifier="ExitRoomSegue" unwindAction="backToGameHall:" id="tHU-L9-Ycs"/>
-                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="StartGameSegue" id="ntn-mq-4Ko"/>
+                        <segue destination="g3i-0r-nTz" kind="presentation" identifier="StartGameSegue" id="XPz-th-9dq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d2-uN-QcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="by4-uw-pdN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1989" y="142"/>
+            <point key="canvasLocation" x="1819" y="165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3tG-AI-D4e">
@@ -185,25 +185,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmy-me-SXa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="142"/>
+            <point key="canvasLocation" x="536" y="165"/>
         </scene>
-        <!--Game View Controller-->
-        <scene sceneID="tXr-a1-R10">
+        <!--Snake Game View Controller-->
+        <scene sceneID="b4x-Gs-QL0">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController id="g3i-0r-nTz" customClass="SnakeGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
-                        <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
+                        <viewControllerLayoutGuide type="top" id="dFK-km-ATy"/>
+                        <viewControllerLayoutGuide type="bottom" id="7DL-pf-pq9"/>
                     </layoutGuides>
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                    <view key="view" contentMode="scaleToFill" id="vUv-FB-unI" customClass="BackgroundGameView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundGameView" destination="vUv-FB-unI" id="XOY-Z0-aCY"/>
+                        <segue destination="RVa-pj-5Md" kind="unwind" identifier="GameOverBackToHallSegue" unwindAction="GameOverBackToHall:" id="qTg-cB-Yuz"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RqW-Na-rUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RVa-pj-5Md" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2727" y="142"/>
+            <point key="canvasLocation" x="2477" y="165"/>
         </scene>
     </scenes>
 </document>

@@ -31,6 +31,15 @@
     [self.view insertSubview:self.loginViewControoller.view atIndex:0];
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
+
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     if (!self.loginViewControoller.view.superview) {

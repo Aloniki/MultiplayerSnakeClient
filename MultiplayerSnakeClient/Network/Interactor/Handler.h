@@ -16,6 +16,6 @@
 }
 @property id<DisplayNetworkProcessUIDeleagte> delegate;
 
--(void)handle:(DataPacket*)packet;
+-(bool)handle:(DataPacket*)packet;
 
 @end

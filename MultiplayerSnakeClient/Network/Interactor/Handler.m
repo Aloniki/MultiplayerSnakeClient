@@ -10,8 +10,8 @@
 
 @implementation Handler
 
--(void)handle:(DataPacket *)packet{
-    
+-(bool)handle:(DataPacket *)packet{
+    return false;
 }
 
 @end

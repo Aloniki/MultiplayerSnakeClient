@@ -10,6 +10,6 @@
 
 @interface GameHandler : Handler
 
--(void)handle:(DataPacket*)packet;
+-(bool)handle:(DataPacket*)packet;
 
 @end

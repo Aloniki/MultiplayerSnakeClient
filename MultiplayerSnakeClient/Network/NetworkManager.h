@@ -19,8 +19,8 @@
 
 #define SERVERIPADDRESS "127.0.0.1"
 #define ROOMIPADDRESS "127.0.0.1"
-//#define SERVERIPADDRESS "172.20.10.2"
-//#define ROOMIPADDRESS "172.20.10.2"
+//#define SERVERIPADDRESS "172.20.10.4"
+//#define ROOMIPADDRESS "172.20.10.4"
 #define C2SPORT 9997
 
 @interface NetworkManager<ClientToServerDelegate>: NSObject{
@@ -55,5 +55,7 @@
 -(BOOL)startGame;
 
 -(BOOL)GameSceneLoaded;
+
+-(BOOL)changeDirection:(int)direction;
 
 @end

@@ -10,15 +10,28 @@
 
 @implementation GameHandler
 
--(void)handle:(DataPacket*)packet{
+-(bool)handle:(DataPacket*)packet{
+    bool isStillReceive = false;
     switch (packet.type) {
-            
-        case R2C_GAMESTART:{
+        case G2P_UPDATE:{
+            NSMutableArray* gameFrameContent = [packet.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
+            NSMutableArray* __weak tmp = gameFrameContent;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate newFrame:tmp];
+            });
+//            NSLog(@"new frame received and handler!");
+            break;
+        }
+        case G2P_GAMEOVER:{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate gameOver];
+            });
             break;
         }
         default:
             break;
     }
+    return isStillReceive;
 }
 
 @end

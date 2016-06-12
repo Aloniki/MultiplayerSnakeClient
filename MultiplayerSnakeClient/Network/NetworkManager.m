@@ -7,6 +7,7 @@
 //
 
 #import "NetworkManager.h"
+#import "HandlerManager.h"
 #import "RoomHandler.h"
 #import "GameHandler.h"
 
@@ -18,7 +19,7 @@ static NetworkManager* networkManager;
 
 @property (readwrite, nonatomic) CFSocketRef socket;
 @property (strong, nonatomic) NSMutableDictionary* playerStatus;
-
+@property (strong, nonatomic) HandlerManager* handlerManager;
 @end
 
 #pragma mark - implementation -
@@ -36,6 +37,7 @@ static NetworkManager* networkManager;
             [networkManager.playerStatus setValue:@"player" forKey:@"playerName"];
             [networkManager.playerStatus setValue:[[NSNumber alloc] initWithInt:0] forKey:@"playerState"];
             [networkManager.playerStatus setValue:[[NSNumber alloc] initWithInt:0] forKey:@"playerRole"];
+            [networkManager setHandlerManager:[[HandlerManager alloc]init]];
         }
     }
     return networkManager;
@@ -89,7 +91,8 @@ static NetworkManager* networkManager;
 }
 
 -(BOOL)connectToRole:(int)role inPort:(int)port{
-    self.socket = CFSocketCreate(NULL, PF_INET, SOCK_STREAM, IPPROTO_TCP,kCFSocketConnectCallBack, NULL, NULL);
+    CFSocketRef newSocket = CFSocketCreate(NULL, PF_INET, SOCK_STREAM, IPPROTO_TCP,kCFSocketConnectCallBack, NULL, NULL);
+    self.socket = newSocket;
     if (self.socket == NULL)
         return NO;
     
@@ -202,6 +205,9 @@ static NetworkManager* networkManager;
                     //run a receiver in a new thread
                     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                     dispatch_async(queue, ^{
+//                        [self.handlerManager setDelegate:self.delegate];
+//                        [self.handlerManager setUsingHandler:[[RoomHandler alloc]init]];
+                        
                         RoomHandler* roomHandler = [[RoomHandler alloc]init];
                         [roomHandler setDelegate:self.delegate];
                         [Receiver receiveFrom:self.socket withHandler:roomHandler];
@@ -278,16 +284,19 @@ static NetworkManager* networkManager;
             DataPacket* dataPacket = [Receiver receiveOneTimeFrom:self.socket within:5];
             if (nil != dataPacket) {
                 if (R2C_GAMESTART == dataPacket.type) {
+                    NSMutableArray* gameFrameContent = [dataPacket.data mutableObjectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode];
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.delegate StartPlaying];
+                        [self.delegate StartPlaying:gameFrameContent];
                     });
                     
                     //run a receiver in a new thread
                     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                     dispatch_async(queue, ^{
-                        GameHandler* gamehandler = [[GameHandler alloc]init];
-                        [gamehandler setDelegate:self.delegate];
-                        [Receiver receiveFrom:self.socket withHandler:gamehandler];
+//                        [self.handlerManager setDelegate:self.delegate];
+//                        [self.handlerManager setUsingHandler:[[GameHandler alloc]init]];
+                        GameHandler* gameHandler = [[GameHandler alloc]init];
+                        [gameHandler setDelegate:self.delegate];
+                        [Receiver receiveFrom:self.socket withHandler:gameHandler];
                     });
                 }
             }
@@ -299,6 +308,19 @@ static NetworkManager* networkManager;
     return NO;
 }
 
+
+-(BOOL)changeDirection:(int)direction{
+    if (CFSocketIsValid(self.socket)) {
+        CFSocketNativeHandle socketfd = CFSocketGetNative(self.socket);
+        if (YES == [Sender send:direction toRole:(GAMEROLE) withData:nil toSocket:socketfd]) {
+            return YES;
+        }else{
+            NSLog(@"error: sending changeing direction signal to room is failed");
+            return NO;
+        }
+    }
+    return NO;
+}
 
 
 

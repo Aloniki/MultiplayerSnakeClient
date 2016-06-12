@@ -141,7 +141,6 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
             });
         }else{
             dispatch_async(dispatch_get_main_queue(), ^{
-                LoginViewController* loginController = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
                 [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT];
             });
         }
@@ -245,9 +244,37 @@ static NSString *RoomListCellIdentifier = @"CellTableIdentifier";
     });
 }
 
+-(IBAction)GameOverBackToHall:(UIStoryboardSegue*)sender{
+    NSLog(@"Game over and back to game hall!");
+    [self launchDaizy];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        if (NO == [self.networkManager connectToRole:SERVERROLE inPort:C2SPORT]) {
+            NSLog(@"Room: connect back to game hall failed!");
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self initProperties];
+            });
+        }
+        
+    });
+}
 
 
+-(BOOL)canPerformUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender{
+    return YES;
+}
 
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
 
 
 

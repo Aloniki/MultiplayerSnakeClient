@@ -47,6 +47,7 @@
  *  @param animated BOOL
  */
 -(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
     self.oldValue = self.slider.value;
     self.sliderWidth = self.slider.frame.size.width;
     self.sliderHeight = self.slider.frame.size.height;

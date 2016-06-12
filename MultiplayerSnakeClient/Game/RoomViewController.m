@@ -29,6 +29,8 @@
 @implementation RoomViewController
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    
     [self.statusView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.statusView.frame.size.height)];
     self.circleIndicator = [[CircleIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 45, 45) withCenter:CGPointMake(22.5, 22.5) withRaidus:18 withStartAngle:-90 withClockwise:0];
     [self.circleIndicator setCenter:CGPointMake(self.statusView.center.x, self.statusView.frame.size.height/2)];
@@ -174,6 +176,9 @@
     [self performSegueWithIdentifier:@"ExitRoomSegue" sender:self];
 }
 
+
+
+
 -(void)GameWillStart{
     [self setIsStarting:YES];
 //    [self.circleIndicator show];
@@ -190,8 +195,8 @@
 
 -(void)countDownToStart:(NSTimer*)timer{
     if (self.isStarting) {
-        if (240 > ++self.waitingTimes) {
-            [self.circleIndicator update:(float)self.waitingTimes / 240.0];
+        if (60 > ++self.waitingTimes) {
+            [self.circleIndicator update:(float)self.waitingTimes / 60.0];
             [self.circleIndicator setNeedsDisplay];
         }else{
             [self setWaitingTimes:0];
@@ -227,8 +232,14 @@
 }
 
 
-
-
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
 
 
 

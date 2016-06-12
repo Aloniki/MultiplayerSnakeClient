@@ -61,15 +61,44 @@
                     packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:C2R_GAMELOADED];
                     break;
                 }
-                    
                 default:
                     break;
             }
             break;
         }
+            
+        case GAMEROLE:{
+            /**
+             *  Game
+             */
+            switch (signal) {
+                case P2G_UP:{
+                    packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:P2G_UP];
+                    break;
+                }
+                case P2G_DOWN:{
+                    packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:P2G_DOWN];
+                    break;
+                }
+                case P2G_LEFT:{
+                    packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:P2G_LEFT];
+                    break;
+                }
+                case P2G_RIGHT:{
+                    packet = [DataPacketProtocol PackToStringWithRole:CLIENTROLE withType:P2G_RIGHT];
+                    break;
+                }
+                default:
+                    break;
+            }
+            break;
+        }
+
         default:
             break;
     }
+    
+    
     const char* c_packet = [packet UTF8String];
     size_t length = strlen(c_packet);
     size_t wCount = 0;

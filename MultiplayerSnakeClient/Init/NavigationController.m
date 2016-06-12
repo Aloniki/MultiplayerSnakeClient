@@ -11,6 +11,7 @@
 @implementation NavigationController
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.1529 green:0.0804 blue:0.0454 alpha:1.0]];
     [[UINavigationBar appearance] setTranslucent:NO];

@@ -30,7 +30,16 @@
 -(void)StartGameByHost;
 
 @optional
--(void)StartPlaying;
+-(void)StartPlaying:(NSMutableArray*)gameFrameContent;
 
 //-(void)PlayerPrepared:(NSMutableArray*)playerList;
+
+@optional
+-(void)newFrame:(NSMutableArray*)gameFrameContent;
+
+@optional
+-(void)gameOver;
+
+
+
 @end

@@ -20,6 +20,7 @@
 #define SERVERROLE 1
 #define CLIENTROLE 2
 #define ROOMROLE 4
+#define GAMEROLE 8
 #define STRINGTYPE 1
 //define the offset of the char '0' to the num 0 in standard ASCII
 #define ASCIINUMOFFSET 48
@@ -38,6 +39,13 @@ enum PlayerState{
     PS_UNPREPARED   =       0,
     PS_PREPARED     =       1,
     PS_GAMING       =       2,
+};
+/**
+ *  the states of snake
+ */
+enum SnakeState{
+    SS_DEAD = 0,
+    SS_ALIVE = 1,
 };
 
 /**
@@ -89,6 +97,22 @@ enum R2CSignal{
     R2C_GAMEWILLSTOP = 6,
     R2C_GAMESTART   =  7,
 
+};
+/**
+ *  player to game manager signal types
+ */
+enum P2GSignal{
+    P2G_UP  = 1,
+    P2G_DOWN = 2,
+    P2G_LEFT = 3,
+    P2G_RIGHT = 4,
+};
+/**
+ *  game manager to player signal types
+ */
+enum G2PSignal{
+    G2P_GAMEOVER = 8,
+    G2P_UPDATE = 9,
 };
 
 @interface DataPacketProtocol : NSObject

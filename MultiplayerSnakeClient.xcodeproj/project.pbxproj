@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181F3ECB1CF49F390022C997 /* SnakeGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F3ECA1CF49F390022C997 /* SnakeGameView.m */; };
+		181F3ECE1CF49F570022C997 /* SnakeGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F3ECD1CF49F570022C997 /* SnakeGameViewController.m */; };
 		183FE0F41CEA20B9008EB6E2 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183FE0F31CEA20B9008EB6E2 /* SignUpView.xib */; };
 		183FE0F71CEA2565008EB6E2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */; };
 		184249791CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m in Sources */ = {isa = PBXBuildFile; fileRef = 184249781CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m */; };
 		1847EA581CF35D1700396D85 /* RoomHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847EA571CF35D1700396D85 /* RoomHandler.m */; };
 		1847EA5B1CF35E9400396D85 /* GameHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847EA5A1CF35E9400396D85 /* GameHandler.m */; };
+		1847EA611CF364EA00396D85 /* HandlerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847EA601CF364EA00396D85 /* HandlerManager.m */; };
 		1861429B1CED726A0052407E /* Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861429A1CED726A0052407E /* Handler.m */; };
 		1887E61A1CE31BEB009945A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6191CE31BEB009945A7 /* main.m */; };
 		1887E61D1CE31BEB009945A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E61C1CE31BEB009945A7 /* AppDelegate.m */; };
@@ -20,12 +23,10 @@
 		1887E62D1CE31BEB009945A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1887E62B1CE31BEB009945A7 /* LaunchScreen.storyboard */; };
 		1887E6381CE31BEB009945A7 /* MultiplayerSnakeClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6371CE31BEB009945A7 /* MultiplayerSnakeClientTests.m */; };
 		1887E6431CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */; };
+		188E431B1D02A6930078CFE3 /* BackgroundGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E431A1D02A6930078CFE3 /* BackgroundGameView.m */; };
 		189832E71CF094A800FE33B2 /* CircleIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189832E61CF094A800FE33B2 /* CircleIndicatorView.m */; };
 		18B753F91CE7645100D65A97 /* CreateRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B753F81CE7645100D65A97 /* CreateRoomViewController.m */; };
 		18C088941CEC44B000EB7F2A /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C088931CEC44B000EB7F2A /* RoomViewController.m */; };
-		18E952361CE4BF3B00203D91 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952181CE4BF3B00203D91 /* GameScene.m */; };
-		18E952371CE4BF3B00203D91 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18E952191CE4BF3B00203D91 /* GameScene.sks */; };
-		18E952381CE4BF3B00203D91 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9521B1CE4BF3B00203D91 /* GameViewController.m */; };
 		18E952391CE4BF3B00203D91 /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9521E1CE4BF3B00203D91 /* InitViewController.m */; };
 		18E9523A1CE4BF3B00203D91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952201CE4BF3B00203D91 /* LoginViewController.m */; };
 		18E9523B1CE4BF3B00203D91 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E952221CE4BF3B00203D91 /* NavigationController.m */; };
@@ -60,6 +61,10 @@
 
 /* Begin PBXFileReference section */
 		1810C62B1CE4DD9C006332AB /* inet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inet.h; sourceTree = "<group>"; };
+		181F3EC91CF49F390022C997 /* SnakeGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnakeGameView.h; sourceTree = "<group>"; };
+		181F3ECA1CF49F390022C997 /* SnakeGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnakeGameView.m; sourceTree = "<group>"; };
+		181F3ECC1CF49F570022C997 /* SnakeGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnakeGameViewController.h; sourceTree = "<group>"; };
+		181F3ECD1CF49F570022C997 /* SnakeGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnakeGameViewController.m; sourceTree = "<group>"; };
 		183FE0F31CEA20B9008EB6E2 /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		183FE0F51CEA2565008EB6E2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		183FE0F61CEA2565008EB6E2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
@@ -69,6 +74,8 @@
 		1847EA571CF35D1700396D85 /* RoomHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomHandler.m; sourceTree = "<group>"; };
 		1847EA591CF35E9400396D85 /* GameHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHandler.h; sourceTree = "<group>"; };
 		1847EA5A1CF35E9400396D85 /* GameHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHandler.m; sourceTree = "<group>"; };
+		1847EA5F1CF364EA00396D85 /* HandlerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandlerManager.h; sourceTree = "<group>"; };
+		1847EA601CF364EA00396D85 /* HandlerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandlerManager.m; sourceTree = "<group>"; };
 		186142991CED726A0052407E /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
 		1861429A1CED726A0052407E /* Handler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Handler.m; sourceTree = "<group>"; };
 		1887E6151CE31BEB009945A7 /* MultiplayerSnakeClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplayerSnakeClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,17 +92,14 @@
 		1887E63E1CE31BEB009945A7 /* MultiplayerSnakeClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplayerSnakeClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887E6421CE31BEB009945A7 /* MultiplayerSnakeClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiplayerSnakeClientUITests.m; sourceTree = "<group>"; };
 		1887E6441CE31BEB009945A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188E43191D02A6930078CFE3 /* BackgroundGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundGameView.h; sourceTree = "<group>"; };
+		188E431A1D02A6930078CFE3 /* BackgroundGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundGameView.m; sourceTree = "<group>"; };
 		189832E51CF094A800FE33B2 /* CircleIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleIndicatorView.h; sourceTree = "<group>"; };
 		189832E61CF094A800FE33B2 /* CircleIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleIndicatorView.m; sourceTree = "<group>"; };
 		18B753F71CE7645100D65A97 /* CreateRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRoomViewController.h; sourceTree = "<group>"; };
 		18B753F81CE7645100D65A97 /* CreateRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRoomViewController.m; sourceTree = "<group>"; };
 		18C088921CEC44B000EB7F2A /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		18C088931CEC44B000EB7F2A /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
-		18E952171CE4BF3B00203D91 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		18E952181CE4BF3B00203D91 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		18E952191CE4BF3B00203D91 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		18E9521A1CE4BF3B00203D91 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		18E9521B1CE4BF3B00203D91 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		18E9521D1CE4BF3B00203D91 /* InitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitViewController.h; sourceTree = "<group>"; };
 		18E9521E1CE4BF3B00203D91 /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
 		18E9521F1CE4BF3B00203D91 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -246,11 +250,12 @@
 		18E952161CE4BF3B00203D91 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				18E952171CE4BF3B00203D91 /* GameScene.h */,
-				18E952181CE4BF3B00203D91 /* GameScene.m */,
-				18E952191CE4BF3B00203D91 /* GameScene.sks */,
-				18E9521A1CE4BF3B00203D91 /* GameViewController.h */,
-				18E9521B1CE4BF3B00203D91 /* GameViewController.m */,
+				181F3EC91CF49F390022C997 /* SnakeGameView.h */,
+				181F3ECA1CF49F390022C997 /* SnakeGameView.m */,
+				188E43191D02A6930078CFE3 /* BackgroundGameView.h */,
+				188E431A1D02A6930078CFE3 /* BackgroundGameView.m */,
+				181F3ECC1CF49F570022C997 /* SnakeGameViewController.h */,
+				181F3ECD1CF49F570022C997 /* SnakeGameViewController.m */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -327,6 +332,8 @@
 				18EC73FC1CE6E23500D150D7 /* Sender.m */,
 				18EC74011CE6E44B00D150D7 /* Receiver.h */,
 				18EC74021CE6E44B00D150D7 /* Receiver.m */,
+				1847EA5F1CF364EA00396D85 /* HandlerManager.h */,
+				1847EA601CF364EA00396D85 /* HandlerManager.m */,
 				186142991CED726A0052407E /* Handler.h */,
 				1861429A1CED726A0052407E /* Handler.m */,
 				1847EA561CF35D1700396D85 /* RoomHandler.h */,
@@ -443,7 +450,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E952371CE4BF3B00203D91 /* GameScene.sks in Resources */,
 				18EC740B1CE727BF00D150D7 /* CreateRoomView.xib in Resources */,
 				183FE0F41CEA20B9008EB6E2 /* SignUpView.xib in Resources */,
 				1887E62D1CE31BEB009945A7 /* LaunchScreen.storyboard in Resources */,
@@ -476,25 +482,27 @@
 			files = (
 				1847EA5B1CF35E9400396D85 /* GameHandler.m in Sources */,
 				184249791CEAD93700C155DC /* NSString+LengthOfChineseASCIIString.m in Sources */,
-				18E952381CE4BF3B00203D91 /* GameViewController.m in Sources */,
 				18EC74001CE6E2AD00D150D7 /* DataPacket.m in Sources */,
+				1847EA611CF364EA00396D85 /* HandlerManager.m in Sources */,
 				1847EA581CF35D1700396D85 /* RoomHandler.m in Sources */,
 				1887E61D1CE31BEB009945A7 /* AppDelegate.m in Sources */,
 				18E9523A1CE4BF3B00203D91 /* LoginViewController.m in Sources */,
 				18E952411CE4BF3B00203D91 /* RoomListCell.m in Sources */,
 				18B753F91CE7645100D65A97 /* CreateRoomViewController.m in Sources */,
 				18C088941CEC44B000EB7F2A /* RoomViewController.m in Sources */,
+				181F3ECE1CF49F570022C997 /* SnakeGameViewController.m in Sources */,
 				18E952391CE4BF3B00203D91 /* InitViewController.m in Sources */,
-				18E952361CE4BF3B00203D91 /* GameScene.m in Sources */,
 				183FE0F71CEA2565008EB6E2 /* SignUpViewController.m in Sources */,
 				18E952431CE4BF3B00203D91 /* RoomListTableViewController.m in Sources */,
 				18EC74031CE6E44B00D150D7 /* Receiver.m in Sources */,
 				1887E61A1CE31BEB009945A7 /* main.m in Sources */,
 				1861429B1CED726A0052407E /* Handler.m in Sources */,
+				188E431B1D02A6930078CFE3 /* BackgroundGameView.m in Sources */,
 				18E9524E1CE4C56D00203D91 /* NetworkManager.m in Sources */,
 				18E9523B1CE4BF3B00203D91 /* NavigationController.m in Sources */,
 				189832E71CF094A800FE33B2 /* CircleIndicatorView.m in Sources */,
 				18EC73FE1CE6E23500D150D7 /* Sender.m in Sources */,
+				181F3ECB1CF49F390022C997 /* SnakeGameView.m in Sources */,
 				18EC73E91CE63C4100D150D7 /* JSONKit.m in Sources */,
 				18EC73FD1CE6E23500D150D7 /* DataPacketProtocol.m in Sources */,
 			);
